@@ -15,12 +15,7 @@ class JourneySection extends StatelessWidget {
       'desc':
           'Membimbing rekan sekelas dalam pemahaman materi Bahasa Inggris menjelang ujian. '
           'Melatih kemampuan menyampaikan materi di depan audiens sejak SMA.',
-      'images': [
-        'assets/images/ppkd.jpeg',
-        'assets/images/ppkd1.jpeg',
-        'assets/images/ppkd2.jpeg',
-        'assets/images/ppkd3.jpeg',
-      ],
+      'images': ['assets/images/englishclub.jpeg'],
       'icon': Icons.code_rounded,
     },
     {
@@ -30,11 +25,7 @@ class JourneySection extends StatelessWidget {
       'desc':
           'Membantu komunikasi dan publikasi kegiatan himpunan ke mahasiswa dan pihak eksternal.'
           'Berkolaborasi dalam tim untuk mendukung program kerja organisasi.',
-      'images': [
-        'assets/images/osis.jpeg',
-        'assets/images/osis1.jpeg',
-        'assets/images/osis2.jpeg',
-      ],
+      'images': ['assets/images/himsi.jpeg'],
       'icon': Icons.school_outlined,
     },
     {
@@ -44,12 +35,7 @@ class JourneySection extends StatelessWidget {
       'desc':
           'Mahasiswa semester 3 jurusan Sistem Informasi. '
           'Sedang menjalani posisi asisten laboratorium Sistem Informasi di Gunadarma.',
-      'images': [
-        'assets/images/aslab.png',
-        'assets/images/aslab1.png',
-        'assets/images/aslab2.png',
-        'assets/images/gundar.jpeg',
-      ],
+      'images': ['assets/images/labsi.jpg'],
       'icon': Icons.account_balance_outlined,
     },
   ];

@@ -96,7 +96,7 @@ class AboutSection extends StatelessWidget {
               ),
               child: ClipOval(
                 child: Image.asset(
-                  "assets/images/RADITYATRESNA.JPG",
+                  "assets/images/profil.jpeg",
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
                     return const Icon(
