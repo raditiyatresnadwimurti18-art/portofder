@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import '../theme/app_colors.dart';
 
 class SkillsSection extends StatefulWidget {
   final ScrollController scrollController;
@@ -99,7 +100,7 @@ class _SkillsSectionState extends State<SkillsSection> {
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 80),
-      color: Colors.blue.shade50,
+      color: const Color(0xFFFFF1F2), // Premium soft rose background
       width: double.infinity,
       child: Column(
         children: [
@@ -161,13 +162,13 @@ class _SkillsSectionState extends State<SkillsSection> {
               children: [
                 Container(
                   width: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
                       colors: [
-                        Colors.blue.shade50,
-                        Colors.blue.shade50.withOpacity(0),
+                        Color(0xFFFFF1F2),
+                        Color(0x00FFF1F2),
                       ],
                     ),
                   ),
@@ -175,13 +176,13 @@ class _SkillsSectionState extends State<SkillsSection> {
                 const Spacer(),
                 Container(
                   width: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.centerRight,
                       end: Alignment.centerLeft,
                       colors: [
-                        Colors.blue.shade50,
-                        Colors.blue.shade50.withOpacity(0),
+                        Color(0xFFFFF1F2),
+                        Color(0x00FFF1F2),
                       ],
                     ),
                   ),
@@ -204,10 +205,10 @@ class _SkillsSectionState extends State<SkillsSection> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(40),
-        border: Border.all(color: const Color(0xFF1A237E).withOpacity(0.1)),
+        border: Border.all(color: AppColors.primary.withOpacity(0.1)),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF1A237E).withOpacity(0.06),
+            color: AppColors.primary.withOpacity(0.06),
             blurRadius: 15,
             offset: const Offset(0, 5),
           ),
@@ -218,7 +219,7 @@ class _SkillsSectionState extends State<SkillsSection> {
         style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
-          color: Color(0xFF1A237E),
+          color: AppColors.primary,
         ),
       ),
     );

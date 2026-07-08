@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import '../theme/app_colors.dart';
 
 class ServicesSection extends StatelessWidget {
   final ScrollController scrollController;
@@ -104,14 +105,14 @@ class ServicesSection extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Icon(icon, size: 50, color: const Color(0xFF1A237E)),
+              Icon(icon, size: 50, color: AppColors.primary),
               const SizedBox(height: 20),
               Text(
                 title,
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF1A237E),
+                  color: AppColors.primary,
                 ),
               ),
               const SizedBox(height: 15),

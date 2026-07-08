@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../theme/app_colors.dart';
 
 class AboutSection extends StatelessWidget {
   final ScrollController scrollController;
@@ -67,7 +68,7 @@ class AboutSection extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: const Color(0xFF1A237E).withOpacity(0.1),
+                  color: AppColors.primary.withOpacity(0.1),
                   width: 2,
                 ),
               ),
@@ -88,7 +89,7 @@ class AboutSection extends StatelessWidget {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF1A237E).withOpacity(0.2),
+                    color: AppColors.primary.withOpacity(0.2),
                     blurRadius: 30,
                     offset: const Offset(0, 10),
                   ),
@@ -131,13 +132,13 @@ class AboutSection extends StatelessWidget {
         Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
-                color: const Color(0xFF1A237E).withOpacity(0.1),
+                color: AppColors.primary.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: const Text(
                 'WEB DEVELOPER',
                 style: TextStyle(
-                  color: Color(0xFF1A237E),
+                  color: AppColors.primary,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.2,
                   fontSize: 12,
@@ -154,7 +155,7 @@ class AboutSection extends StatelessWidget {
               style: TextStyle(
                 fontSize: isMobile ? 32 : 56,
                 fontWeight: FontWeight.w900,
-                color: const Color(0xFF1A237E),
+                color: AppColors.primary,
                 height: 1.1,
               ),
             )
@@ -205,7 +206,7 @@ class AboutSection extends StatelessWidget {
                   icon: const Icon(Icons.download_rounded),
                   label: const Text('Download CV'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF1A237E),
+                    backgroundColor: AppColors.primary,
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 32,
@@ -237,7 +238,7 @@ class AboutSection extends StatelessWidget {
           style: const TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF1A237E),
+            color: AppColors.primary,
           ),
         ),
         Text(

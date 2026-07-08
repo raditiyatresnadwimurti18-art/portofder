@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../theme/app_colors.dart';
 import '../widgets/about_section.dart';
 import '../widgets/journey_section.dart';
 import '../widgets/services_section.dart';
@@ -116,7 +117,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
           'Dheriel Portofolio',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Color(0xFF1A237E),
+            color: AppColors.primary,
           ),
         ),
         backgroundColor: Colors.white,
@@ -145,7 +146,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                 value: snapshot.data ?? 0,
                 backgroundColor: Colors.transparent,
                 valueColor: const AlwaysStoppedAnimation<Color>(
-                  Color(0xFF1A237E),
+                  AppColors.primary,
                 ),
                 minHeight: 3,
               );
@@ -186,7 +187,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
       child: AnimatedDefaultTextStyle(
         duration: const Duration(milliseconds: 200),
         style: TextStyle(
-          color: isSelected ? const Color(0xFF1A237E) : Colors.black54,
+          color: isSelected ? AppColors.primary : Colors.black54,
           fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
           fontSize: 14,
         ),
@@ -210,7 +211,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
         currentIndex: _selectedIndex,
         onTap: (index) => _scrollToSection(index, _sectionKeys[index]),
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: const Color(0xFF1A237E),
+        selectedItemColor: AppColors.primary,
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
         items: const [
@@ -236,7 +237,7 @@ class _PortfolioHomeState extends State<PortfolioHome> {
   Widget _buildFooter() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 24),
-      color: const Color(0xFF1A237E),
+      color: AppColors.primary,
       width: double.infinity,
       child: Column(
         children: [

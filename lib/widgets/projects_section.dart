@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../theme/app_colors.dart';
 
 class ProjectsSection extends StatelessWidget {
   final ScrollController scrollController;
@@ -96,7 +97,7 @@ class ProjectsSection extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF1A237E).withOpacity(0.08),
+            color: AppColors.primary.withOpacity(0.08),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -110,7 +111,7 @@ class ProjectsSection extends StatelessWidget {
             height: 200,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: const Color(0xFF1A237E).withOpacity(0.05),
+              color: AppColors.primary.withOpacity(0.05),
               borderRadius: const BorderRadius.vertical(
                 top: Radius.circular(20),
               ),
@@ -128,7 +129,7 @@ class ProjectsSection extends StatelessWidget {
                           child: Icon(
                             icon ?? Icons.broken_image,
                             size: 80,
-                            color: const Color(0xFF1A237E).withOpacity(0.5),
+                            color: AppColors.primary.withOpacity(0.5),
                           ),
                         );
                       },
@@ -137,7 +138,7 @@ class ProjectsSection extends StatelessWidget {
                 : Icon(
                     icon ?? Icons.work,
                     size: 80,
-                    color: const Color(0xFF1A237E).withOpacity(0.5),
+                    color: AppColors.primary.withOpacity(0.5),
                   ),
           ),
           Padding(
@@ -151,13 +152,13 @@ class ProjectsSection extends StatelessWidget {
                     vertical: 5,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF1A237E).withOpacity(0.1),
+                    color: AppColors.primary.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(5),
                   ),
                   child: Text(
                     category,
                     style: const TextStyle(
-                      color: Color(0xFF1A237E),
+                      color: AppColors.primary,
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
                     ),
@@ -169,7 +170,7 @@ class ProjectsSection extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF1A237E),
+                    color: AppColors.primary,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -190,7 +191,7 @@ class ProjectsSection extends StatelessWidget {
                     }
                   },
                   style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Color(0xFF1A237E)),
+                    side: const BorderSide(color: AppColors.primary),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -202,14 +203,14 @@ class ProjectsSection extends StatelessWidget {
                         'Lihat Detail',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF1A237E),
+                          color: AppColors.primary,
                         ),
                       ),
                       SizedBox(width: 8),
                       Icon(
                         Icons.arrow_forward,
                         size: 16,
-                        color: Color(0xFF1A237E),
+                        color: AppColors.primary,
                       ),
                     ],
                   ),

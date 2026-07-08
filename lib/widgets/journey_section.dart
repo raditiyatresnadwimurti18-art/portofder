@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:photo_view/photo_view.dart';
+import '../theme/app_colors.dart';
 
 class JourneySection extends StatelessWidget {
   final ScrollController scrollController;
@@ -66,11 +67,11 @@ class JourneySection extends StatelessWidget {
       children: [
         Text(
               'RIWAYAT PERJALANAN',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2,
-                color: Colors.orange.shade800,
+                color: AppColors.secondary,
               ),
             )
             .animate(
@@ -85,7 +86,7 @@ class JourneySection extends StatelessWidget {
               style: TextStyle(
                 fontSize: isMobile ? 28 : 44,
                 fontWeight: FontWeight.w900,
-                color: const Color(0xFF1A237E),
+                color: AppColors.primary,
                 height: 1.2,
               ),
             )
@@ -99,7 +100,7 @@ class JourneySection extends StatelessWidget {
               width: 80,
               height: 4,
               decoration: BoxDecoration(
-                color: const Color(0xFF1A237E),
+                color: AppColors.primary,
                 borderRadius: BorderRadius.circular(2),
               ),
             )
@@ -216,7 +217,7 @@ class _TimelineItem extends StatelessWidget {
     required this.scrollController,
   });
 
-  static const _navy = Color(0xFF1A237E);
+  static const _navy = AppColors.primary;
 
   @override
   Widget build(BuildContext context) {
@@ -343,80 +344,12 @@ class _TimelineItem extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        Wrap(
-                          spacing: 10,
-                          runSpacing: 10,
-                          children: images.asMap().entries.map((e) {
-                            final imgIndex = e.key;
-                            final img = e.value;
-                            final double imgStart =
-                                itemStart + 100 + (imgIndex * 30);
-                            return GestureDetector(
-                              onTap: () => onImageTap(img),
-                              child:
-                                  Container(
-                                        width: isMobile ? 90 : 130,
-                                        height: isMobile ? 90 : 130,
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey.shade100,
-                                          borderRadius: BorderRadius.circular(
-                                            10,
-                                          ),
-                                          border: Border.all(
-                                            color: Colors.grey.withOpacity(
-                                              0.25,
-                                            ),
-                                          ),
-                                        ),
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(
-                                            9,
-                                          ),
-                                          child: Image.asset(
-                                            img,
-                                            fit: BoxFit.cover,
-                                            errorBuilder: (_, __, ___) => Container(
-                                              color: Colors.grey.shade100,
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(
-                                                    Icons
-                                                        .image_not_supported_outlined,
-                                                    color: Colors.grey.shade400,
-                                                    size: 28,
-                                                  ),
-                                                  const SizedBox(height: 4),
-                                                  Text(
-                                                    'No image',
-                                                    style: TextStyle(
-                                                      fontSize: 10,
-                                                      color:
-                                                          Colors.grey.shade400,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      )
-                                      .animate(
-                                        adapter: ScrollAdapter(
-                                          scrollController,
-                                          begin: imgStart,
-                                          end: imgStart + 150,
-                                        ),
-                                      )
-                                      .fadeIn()
-                                      .scale(
-                                        begin: const Offset(0.9, 0.9),
-                                        end: const Offset(1.0, 1.0),
-                                      ),
-                            );
-                          }).toList(),
-                        ),
+                        if (images.isNotEmpty) ...[
+                          if (images.length == 1)
+                            _buildSingleImagePreview(context, images.first, itemStart)
+                          else
+                            _buildMultipleImageGrid(context, images, itemStart),
+                        ],
                       ],
                     )
                     .animate(
@@ -431,6 +364,143 @@ class _TimelineItem extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildSingleImagePreview(BuildContext context, String imagePath, double itemStart) {
+    final double maxWidth = isMobile ? double.infinity : 320;
+    final double height = isMobile ? 180 : 200;
+
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () => onImageTap(imagePath),
+        child: Container(
+          width: maxWidth,
+          height: height,
+          decoration: BoxDecoration(
+            color: Colors.grey.shade100,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: AppColors.border,
+              width: 1.5,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.primary.withOpacity(0.06),
+                blurRadius: 16,
+                offset: const Offset(0, 8),
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(14),
+            child: Image.asset(
+              imagePath,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => Container(
+                color: Colors.grey.shade100,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.image_not_supported_outlined,
+                      color: AppColors.textMuted,
+                      size: 40,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Gagal memuat gambar',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: AppColors.textMuted,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      )
+      .animate(
+        adapter: ScrollAdapter(
+          scrollController,
+          begin: itemStart + 100,
+          end: itemStart + 250,
+        ),
+      )
+      .fadeIn()
+      .scale(
+        begin: const Offset(0.95, 0.95),
+        end: const Offset(1.0, 1.0),
+      ),
+    );
+  }
+
+  Widget _buildMultipleImageGrid(BuildContext context, List<String> images, double itemStart) {
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      children: images.asMap().entries.map((e) {
+        final imgIndex = e.key;
+        final img = e.value;
+        final double imgStart = itemStart + 100 + (imgIndex * 30);
+        return GestureDetector(
+          onTap: () => onImageTap(img),
+          child: Container(
+            width: isMobile ? 90 : 130,
+            height: isMobile ? 90 : 130,
+            decoration: BoxDecoration(
+              color: Colors.grey.shade100,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: Colors.grey.withOpacity(0.25),
+              ),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(9),
+              child: Image.asset(
+                img,
+                fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => Container(
+                  color: Colors.grey.shade100,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.image_not_supported_outlined,
+                        color: Colors.grey.shade400,
+                        size: 28,
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'No image',
+                        style: TextStyle(
+                          fontSize: 10,
+                          color: Colors.grey.shade400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          )
+          .animate(
+            adapter: ScrollAdapter(
+              scrollController,
+              begin: imgStart,
+              end: imgStart + 150,
+            ),
+          )
+          .fadeIn()
+          .scale(
+            begin: const Offset(0.9, 0.9),
+            end: const Offset(1.0, 1.0),
+          ),
+        );
+      }).toList(),
     );
   }
 }
