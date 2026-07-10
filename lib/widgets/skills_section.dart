@@ -100,7 +100,7 @@ class _SkillsSectionState extends State<SkillsSection> {
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 80),
-      color: const Color(0xFFFFF1F2), // Premium soft rose background
+      color: const Color(0xFFF3FCFE), // Soft cyan-tinted background
       width: double.infinity,
       child: Column(
         children: [
@@ -166,10 +166,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                     gradient: LinearGradient(
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
-                      colors: [
-                        Color(0xFFFFF1F2),
-                        Color(0x00FFF1F2),
-                      ],
+                      colors: [Color(0xFFF3FCFE), Color(0x00F3FCFE)],
                     ),
                   ),
                 ),
@@ -180,10 +177,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                     gradient: LinearGradient(
                       begin: Alignment.centerRight,
                       end: Alignment.centerLeft,
-                      colors: [
-                        Color(0xFFFFF1F2),
-                        Color(0x00FFF1F2),
-                      ],
+                      colors: [Color(0xFFF3FCFE), Color(0x00F3FCFE)],
                     ),
                   ),
                 ),

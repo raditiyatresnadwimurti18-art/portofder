@@ -9,7 +9,7 @@ class AboutSection extends StatelessWidget {
 
   Future<void> _launchCVUrl() async {
     final Uri url = Uri.parse(
-      'https://drive.google.com/drive/folders/1Ev2S2389UuyTQFJ6ZDmot2C-KZdLKQmd',
+      'https://drive.google.com/file/d/1KuWTZ-f-A3QjjF2TnnGaLbWixnFdEp3-/view?usp=drivesdk',
     );
 
     try {
@@ -82,36 +82,29 @@ class AboutSection extends StatelessWidget {
 
         // Gambar Utama
         Container(
-              width: size,
-              height: size,
-              decoration: BoxDecoration(
-                color: Colors.grey.shade100,
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.primary.withOpacity(0.2),
-                    blurRadius: 30,
-                    offset: const Offset(0, 10),
-                  ),
-                ],
+          width: size,
+          height: size,
+          decoration: BoxDecoration(
+            color: Colors.grey.shade100,
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.primary.withOpacity(0.2),
+                blurRadius: 30,
+                offset: const Offset(0, 10),
               ),
-              child: ClipOval(
-                child: Image.asset(
-                  "assets/images/profil.jpeg",
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) {
-                    return const Icon(
-                      Icons.person,
-                      size: 100,
-                      color: Colors.grey,
-                    );
-                  },
-                ),
-              ),
-            )
-            .animate(adapter: ScrollAdapter(scrollController, end: 400))
-            .fadeIn()
-            .scale(begin: const Offset(0.8, 0.8), end: const Offset(1, 1)),
+            ],
+          ),
+          child: ClipOval(
+            child: Image.asset(
+              "assets/images/profil.jpeg",
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return const Icon(Icons.person, size: 100, color: Colors.grey);
+              },
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -145,9 +138,12 @@ class AboutSection extends StatelessWidget {
                 ),
               ),
             )
-            .animate(adapter: ScrollAdapter(scrollController, end: 150))
-            .fadeIn()
-            .slideX(begin: -0.1, end: 0),
+            .animate(
+              adapter: ScrollAdapter(scrollController, begin: 80, end: 220),
+            )
+            .fadeIn(duration: 350.ms)
+            .slideX(begin: -0.05, end: 0)
+            .blurXY(begin: 10, end: 0, duration: 350.ms),
         const SizedBox(height: 20),
         Text(
               'Halo, Saya Dheriel',
@@ -160,10 +156,11 @@ class AboutSection extends StatelessWidget {
               ),
             )
             .animate(
-              adapter: ScrollAdapter(scrollController, begin: 20, end: 200),
+              adapter: ScrollAdapter(scrollController, begin: 100, end: 240),
             )
-            .fadeIn()
-            .slideY(begin: 0.1, end: 0),
+            .fadeIn(duration: 350.ms)
+            .slideY(begin: 0.06, end: 0)
+            .blurXY(begin: 12, end: 0, duration: 350.ms),
         const SizedBox(height: 24),
         Text(
               'Saya adalah mahasiswa Sistem Informasi yang memiliki ketertarikan pada pengembangan web, jaringan komputer, dan teknologi informasi. Berpengalaman sebagai Asisten Laboratorium Sistem Informasi (LABSI), saya terbiasa bekerja sama dalam tim, membantu pemecahan masalah teknis, serta mendampingi proses praktikum. Saya terus mengembangkan kemampuan teknis dan komunikasi untuk menciptakan solusi digital yang bermanfaat serta memberikan dampak positif di dunia teknologi.',
@@ -175,9 +172,10 @@ class AboutSection extends StatelessWidget {
               ),
             )
             .animate(
-              adapter: ScrollAdapter(scrollController, begin: 50, end: 250),
+              adapter: ScrollAdapter(scrollController, begin: 140, end: 280),
             )
-            .fadeIn(),
+            .fadeIn(duration: 350.ms)
+            .blurXY(begin: 10, end: 0, duration: 350.ms),
         const SizedBox(height: 40),
 
         // Stats atau Highlight Info
@@ -221,10 +219,11 @@ class AboutSection extends StatelessWidget {
               ],
             )
             .animate(
-              adapter: ScrollAdapter(scrollController, begin: 150, end: 350),
+              adapter: ScrollAdapter(scrollController, begin: 180, end: 320),
             )
-            .fadeIn()
-            .slideY(begin: 0.1, end: 0),
+            .fadeIn(duration: 300.ms)
+            .slideY(begin: 0.06, end: 0)
+            .blurXY(begin: 8, end: 0, duration: 300.ms),
       ],
     );
   }
