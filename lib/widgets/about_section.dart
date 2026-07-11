@@ -9,7 +9,7 @@ class AboutSection extends StatelessWidget {
 
   Future<void> _launchCVUrl() async {
     final Uri url = Uri.parse(
-      'https://drive.google.com/file/d/1KuWTZ-f-A3QjjF2TnnGaLbWixnFdEp3-/view?usp=drivesdk',
+      'https://drive.google.com/file/d/148JzD1cLoR2cncEuoCBeCuxawBkTXoxD/view?usp=drivesdk',
     );
 
     try {
